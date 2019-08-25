@@ -34,7 +34,7 @@
         <TraceSelect :hasSearch="true" :title="this.$t('service')" :value="service" @input="chooseService" :data="rocketTrace.services"/>
         <TraceSelect :hasSearch="true" :title="this.$t('instance')" v-model="instance" :data="rocketTrace.instances"/>
         <TraceSelect  :title="this.$t('status')" :value="traceState" @input="chooseStatus"
-        :data="[{label:'All', key: 'ALL'}, {label:'Success', key: 'SUCCESS'}, {label:'Error', key: 'ERROR'}]"/>
+        :data="[{label:'所有', key: 'ALL'}, {label:'成功', key: 'SUCCESS'}, {label:'错误', key: 'ERROR'}]"/>
         <div class="mr-10" style="padding: 3px 15px 0">
           <div class="sm grey">{{this.$t('endpointName')}}</div>
           <input type="text"  v-model="endpointName" class="rk-trace-search-input">
@@ -84,11 +84,11 @@ export default class TraceTool extends Vue {
   private status: boolean = true;
   private maxTraceDuration: string = '';
   private minTraceDuration: string = '';
-  private service: Option  = {label: 'All', key: ''};
-  private instance: Option  = {label: 'All', key: ''};
+  private service: Option  = {label: '全部', key: ''};
+  private instance: Option  = {label: '全部', key: ''};
   private endpointName: string = '';
   private traceId: string = '';
-  private traceState: Option  = {label: 'All', key: 'ALL'};
+  private traceState: Option  = {label: '全部', key: 'ALL'};
   private dateFormate = (date: Date, step: string) => {
     const year = date.getFullYear();
     const monthTemp = date.getMonth() + 1;

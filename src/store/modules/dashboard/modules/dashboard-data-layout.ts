@@ -39,7 +39,7 @@ const initState: State = {
   group: 0,
   index: 0,
   tree: [{
-    name: 'Service Dashboard',
+    name: '服务仪表盘',
     type: 'service',
     query:  {
       service: {},
@@ -49,7 +49,7 @@ const initState: State = {
     },
     children: groupServiceTemp,
   }, {
-    name: 'Database Dashboard',
+    name: '数据库仪表盘',
     type: 'database',
     query:  {
       service: {},

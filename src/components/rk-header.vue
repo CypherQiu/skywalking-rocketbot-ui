@@ -18,10 +18,9 @@
 <template>
   <header class="rk-header flex-h">
     <div class="flex-h">
-      <svg class="svg-logo icon" style="margin-right:35px;margin-top:-5px">
-        <use xlink:href="#logo-sw"></use>
-      </svg>
-      <span class="grey rocketbot">Rocketbot</span>
+      <div class='logo-container'>
+          <img :src="logo" alt="" srcset="">
+      </div>
       <router-link class="nav-link mr-20" to="/" exact>
         <svg class="icon sm vm">
           <use xlink:href="#chart"></use>
@@ -89,6 +88,7 @@ export default class Header extends Vue {
   @Action('SET_DURATION') private SET_DURATION: any;
   private show: boolean = false;
   private auto: boolean = false;
+  private logo: string = '';
   private timer: any = null;
   private handleReload() {
     const gap = this.duration.end.getTime() - this.duration.start.getTime();
@@ -117,10 +117,22 @@ export default class Header extends Vue {
     localStorage.removeItem('skywalking-authority');
     this.$router.push('/login');
   }
+  private mounted() {
+    this.logo = require(`./../assets/img/logo.png`);
+    this.$i18n.locale = 'zh';
+  }
 }
 </script>
 
 <style lang="scss" scoped>
+.logo-container {
+  height: 48px;
+  width: 160px;
+  float: left;
+  img {
+    height: 48px;
+  }
+}
 .rk-header {
   flex-shrink: 0;
   justify-content: space-between;
